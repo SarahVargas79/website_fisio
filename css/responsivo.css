@@ -1,0 +1,135 @@
+@media (max-width: 768px) {
+    header {
+        display: flex;
+        height: 8.875rem;
+        padding: 1rem var(--horizontal-padding, 1.5rem);
+
+        flex-direction: column;
+        align-items: flex-start;
+        flex-shrink: 0;
+        align-self: stretch;
+    }
+
+    #nav-bar {
+        display: flex;
+        width: 720px;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        left: 24px;
+        top: 8px;
+
+    }
+
+
+    #menu {
+        display: flex;
+        width: 415px;
+        height: 800px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: absolute;
+        right: 0px;
+        bottom: -651px;
+    }
+
+    #logo {
+        width: 356px;
+        height: 103px;
+
+    }
+
+    .destaque {
+        display: flex;
+        width: 1698px;
+        padding: 60px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .destaque .inform h1 {
+        font-size: 28px;
+
+    }
+
+    .destaque .inform p {
+        font-size: 15px;
+    }
+
+    .historia .container h1 {
+        font-size: 28px;
+    }
+
+    .historia .container1 p {
+        font-size: 15px;
+    }
+
+    .historia .container3 img {
+        width: 332px;
+        height: 287px;
+    }
+
+    .historia .container3 {
+        margin-top: -75px;
+    }
+
+    .profissional .curved h1 {
+        font-size: 28px;
+    }
+
+    .profissional .curved h3 {
+        font-size: 22px;
+    }
+
+    .profissional .curved p {
+        font-size: 18px;
+    }
+
+    .protocol .container h1 {
+        font-size: 28px;
+    }
+
+    .servicos .container h1 {
+        font-size: 28px;
+    }
+
+
+
+    .servicos .container .carrosel {
+        width: 2453px;
+        height: 211px;
+
+        gap: 16px;
+    }
+
+    .form {}
+
+    .form .container h1 {
+        font-size: 28px;
+    }
+
+    .form .container p {
+        height: 110px;
+        align-self: stretch;
+    }
+
+    .form .container .campo-texto {
+        display: flex;
+        width: 1068px;
+        padding-left: 503px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .endHora .container h1 {
+        font-size: 28px;
+    }
+
+    .redes-sociais .curved h1 {
+        font-size: 28px;
+    }
+
+}

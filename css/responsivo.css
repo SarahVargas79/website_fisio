@@ -1,135 +1,215 @@
 @media (max-width: 768px) {
-    header {
-        display: flex;
-        height: 8.875rem;
-        padding: 1rem var(--horizontal-padding, 1.5rem);
-
-        flex-direction: column;
-        align-items: flex-start;
-        flex-shrink: 0;
-        align-self: stretch;
+    #logo {
+        width: 250px;
+        height: auto;
+        margin-right: 1rem;
     }
 
-    #nav-bar {
-        display: flex;
-        width: 720px;
-        justify-content: space-between;
-        align-items: center;
-        position: absolute;
-        left: 24px;
-        top: 8px;
-
+    #logo img {
+        width: 315px;
     }
-
 
     #menu {
-        display: flex;
-        width: 415px;
-        height: 800px;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        position: absolute;
-        right: 0px;
-        bottom: -651px;
+        display: none;
     }
 
-    #logo {
-        width: 356px;
-        height: 103px;
+    #hamburger-menu {
+        display: flex;
+    }
 
+    #menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 8rem;
+        right: 0;
+        background-color: #b40036;
+        padding: 3rem;
+        z-index: 1000;
+    }
+
+    #menu ul {
+        flex-direction: column;
+        height: 250px;
+    }
+
+    #menu ul li {
+        margin: 1rem 0;
+    }
+
+    body h1 {
+        font-size: 1.5rem !important;
     }
 
     .destaque {
         display: flex;
-        width: 1698px;
-        padding: 60px 20px;
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .destaque .inform h1 {
-        font-size: 28px;
-
+        height: 555px;
+        padding: 1rem;
     }
 
     .destaque .inform p {
-        font-size: 15px;
+        font-size: 1.1rem;
+        text-align: center;
+        max-width: 85%;
     }
 
-    .historia .container h1 {
-        font-size: 28px;
+    .historia .container1 {
+        margin-top: -10px;
+        flex-direction: column;
     }
 
     .historia .container1 p {
-        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
     }
 
     .historia .container3 img {
-        width: 332px;
-        height: 287px;
+        width: 85%;
+        height: auto;
+        margin-top: 50px;
     }
 
-    .historia .container3 {
-        margin-top: -75px;
+    .profissional .curriculo h3 {
+        font-size: 1.2rem;
     }
 
-    .profissional .curved h1 {
-        font-size: 28px;
+    .profissional img {
+        width: 180px;
+        height: 180px;
     }
 
-    .profissional .curved h3 {
-        font-size: 22px;
+    .profissional .curriculo p {
+        font-size: 1rem;
     }
 
-    .profissional .curved p {
-        font-size: 18px;
+    .protocol .container p {
+        font-size: 1.1rem;
     }
 
-    .protocol .container h1 {
-        font-size: 28px;
+    .protocol .container img {
+        width: 342px;
+        height: 330px;
     }
 
-    .servicos .container h1 {
-        font-size: 28px;
+    .servicos .curved .container {
+        padding-bottom: 10px;
     }
-
-
 
     .servicos .container .carrosel {
         width: 2453px;
         height: 211px;
-
         gap: 16px;
     }
 
-    .form {}
-
-    .form .container h1 {
-        font-size: 28px;
+    .form {
+        margin-top: 0;
     }
 
-    .form .container p {
-        height: 110px;
-        align-self: stretch;
+    .endHora .container img {
+        width: 35px;
     }
 
-    .form .container .campo-texto {
-        display: flex;
-        width: 1068px;
-        padding-left: 503px;
+    .endHora .container p {
+        font-size: 1rem;
+    }
+
+    .redes-sociais .curved {
+        height: auto;
+        padding-bottom: 45px;
+    }
+
+    .redes-sociais .social-icons {
         flex-direction: column;
-        align-items: flex-start;
         gap: 15px;
+        margin-top: 10px;
     }
 
-    .endHora .container h1 {
-        font-size: 28px;
+    .redes-sociais .social-icons a {
+        flex-direction: column;
+        gap: 10px;
     }
 
-    .redes-sociais .curved h1 {
-        font-size: 28px;
+    .redes-sociais .social-icons img,
+    .redes-sociais .social-icons #whats img {
+        width: 60px;
     }
 
+    .redes-sociais .social-icons p {
+        font-size: 1rem;
+        margin-left: 0;
+        padding: 5px;
+    }
+
+    .redes-sociais #insta p {
+        margin-top: 10px;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: 0.9rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    header,
+    .menu,
+    .main,
+    footer {
+        padding: 10px;
+    }
+
+    .menu,
+    .main,
+    footer {
+        width: 100%;
+        /* Garante que os elementos ocupem toda a largura da tela */
+        margin: 0 auto;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu ul li {
+        margin-bottom: 10px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .main h1 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .main p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    /* Formulário */
+    form input,
+    form textarea {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 0.8;
+        text-align: center;
+    }
 }

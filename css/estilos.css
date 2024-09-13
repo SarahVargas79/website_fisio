@@ -4,22 +4,29 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Trocchi', sans-serif;
-}
-
 @font-face {
     font-family: 'Trocchi';
     src: url('./font/Trocchi-Regular.ttf') format('truetype');
 }
 
-header {
-    background-color: #b40036;
-    padding: 1rem 1.5rem;
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Trocchi', sans-serif;
 }
 
 body h1 {
-    font-size: 38px;
+    font-size: 2rem;
+}
+
+#cabecalho {
+    background-color: #b40036;
+    color: #fff;
+    padding: 10px 40px;
+    border-bottom: 4px solid #a3002f;
 }
 
 #nav-bar {
@@ -28,37 +35,34 @@ body h1 {
     align-items: center;
 }
 
-#logo {
-    margin: 0 2rem;
+#logo img {
+    width: 350px;
 }
 
+/* Menu */
 #menu ul {
     list-style: none;
+    display: flex;
+    justify-content: center;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
-#menu ul li {
-    margin: 0 1rem;
-}
-
-#menu ul li a {
-    text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-    padding: 0.5rem 0.5rem;
-    transition: background-color 0.3s, color 0.3s;
+#menu li {
+    margin: 0 15px;
 }
 
 #menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
     position: relative;
-    transition: color 0.3s ease, border-bottom 0.3s ease;
+    letter-spacing: 2px;
 }
 
 #menu a:hover {
     color: #f0b71b;
-    /* Cor de destaque ao passar o mouse */
 }
 
 #menu a::after {
@@ -68,7 +72,7 @@ body h1 {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: #dba100;
+    background-color: #ffa600;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
@@ -79,54 +83,83 @@ body h1 {
     transform-origin: bottom left;
 }
 
+#hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2.5rem;
+    height: 2.4rem;
+    cursor: pointer;
+    border: 2px solid #E30073;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+#hamburger-menu span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #E30073;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+#hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+#hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
 
 /* Destaque */
 .destaque {
-    background: url('./imagens/destaque.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    background-color: #f1f1f16e;
     color: #b40036;
     text-align: center;
-    padding: 60px 20px;
+    padding: 50px 0 50px;
+    border-bottom: 5px solid #a3002f;
 }
 
-.destaque .inform {
-    background-color: #f8f9fa;
-    padding: 60px 20px;
-    border-radius: 10px;
+.destaque h1 {
+    margin-bottom: 15px;
 }
 
 .destaque p {
-    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    line-height: 1.8;
     text-align: justify;
-    margin-left: 175px;
-    margin-top: 25px;
+    margin: 0 auto;
+    text-shadow: -2px -1px 4px rgba(0, 0, 0, 0.31);
 }
 
 /* Sobre */
 .historia {
-    padding: 60px 20px;
+    padding: 50px 0;
     background-color: #b40036
 }
 
 .historia .container {
     max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+    margin-top: -10px;
 }
 
 .historia .container1 {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     margin-top: 40px;
 }
 
-.historia .container2,
-.historia .container3 {
-    flex: 1;
-}
-
 .historia .container2 {
-    padding-right: 20px;
+    margin-top: 40px;
+    margin-right: 4%;
 }
 
 .historia h1 {
@@ -134,13 +167,12 @@ body h1 {
 }
 
 .historia p {
-    font-size: 19px;
+    font-size: 1.2rem;
     text-align: justify;
     color: #fff;
 }
 
 .historia img {
-    width: 80%;
     height: auto;
     box-shadow: 6px 4px 11.3px 0px rgba(0, 0, 0, 0.80);
 }
@@ -153,7 +185,7 @@ body h1 {
     color: #b40036;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -163,12 +195,12 @@ body h1 {
 
 /* Profissional */
 .profissional {
-    padding: 60px 20px;
+    padding: 50px 20px;
 }
 
 .profissional .curved {
     background-color: #f8f9fa;
-    padding: 60px 20px;
+    padding: 50px 20px 60px;
     border-radius: 10px;
     color: #b40036;
 }
@@ -198,24 +230,27 @@ body h1 {
 
 .profissional .curriculo h3 {
     margin: 10px 0;
-    font-size: 24px;
+    font-size: 1.5rem;
 }
 
 .profissional .curriculo p {
-    font-size: 19px;
+    font-size: 1.2rem;
 }
 
 /* Protocol */
-
 .protocol {
     background-color: #b40036;
-    padding: 60px 20px;
+    padding: 40px 0px 35px;
     color: #fff;
+}
+
+.protocol h1 {
+    margin-top: 10px;
 }
 
 .protocol p {
     margin-top: 24px;
-    font-size: 18px;
+    font-size: 1.3rem;
     color: #a0ff2c;
 }
 
@@ -227,13 +262,20 @@ body h1 {
     box-shadow: 4px -2px 11.3px 0px rgba(0, 0, 0, 0.80);
 }
 
+.container,
+.curved,
+.inform {
+    width: 100%;
+    padding: 0 10px;
+    /* Adicionando padding lateral */
+    box-sizing: border-box;
+}
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
-
 
 .curved {
     background-color: #f8f9fa;
@@ -242,10 +284,9 @@ body h1 {
     text-align: center;
 }
 
-
 /* Serviços */
 .servicos {
-    padding: 60px 20px;
+    padding: 50px 20px;
     border-radius: 10px;
     text-align: center;
     color: #b40036;
@@ -301,103 +342,100 @@ body h1 {
     }
 }
 
-
-/* Contato */
+/* Formulário */
 .form {
-    height: 400px;
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+    height: 600px;
 }
 
-.form .container h1 {
-    color: #9D0039;
-    text-align: center;
-
+.form .container {
+    max-width: 500px;
 }
 
-.form .informBotao {
-    float: left;
-    margin-left: 10.5%;
+.form h1 {
+    color: #b40036;
+    margin-bottom: 30px;
 }
 
-.form .informBotao p {
-    margin-top: -190px;
-    color: #3d3d3d;
-    font-size: 17px;
-    text-align: justify;
+.form p {
+    color: #525252;
 }
 
-.form .informBotao span {
-    margin-left: 5px;
-    color: #9D0039;
-    font-weight: bold;
+.form input {
+    display: block;
+    width: calc(100% - 40px);
+    /* Ajuste de largura para maior espaçamento nas laterais */
+    margin: 35px auto;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    /* Transição suave para foco */
 }
 
-.form .informBotao input {
-    display: inline-flex;
-    align-items: center;
-    margin-top: 78px;
-    padding: 15px 25px;
+.form input:focus {
+    border: 1px solid #b40036 !important;
+    outline: none;
+    border-color: #b40036;
+    box-shadow: 0 0 8px rgba(180, 0, 54, 0.2);
+}
+
+.form input[type="submit"] {
     background-color: #b40036;
-    font-size: 16px;
-    font-weight: bold;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-input:focus {
-    border: solid 2px #9D0039 !important;
-    outline: none !important;
+.form input[type="submit"]:hover {
+    background-color: #a3002f;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* Adicionando sombreamento no hover */
 }
 
-.form .informBotao input:hover {
-    background-color: rgb(184, 0, 55);
-    box-shadow: 1px 0.5px 10px 2px rgba(151, 151, 151, 0.616);
+.form span {
+    color: #b40036;
 }
 
-.form .campo-texto {
-    margin-top: 38px;
-    margin-right: 11%;
+.informBotao input:hover {
+    background-color: #b80037;
+    box-shadow: 1px 0.5px 10px 2px #9797979d;
 }
 
-.form .campo-texto input {
-    float: right;
-    width: 565px;
-    height: 50px;
-    border: 1px solid #ccc;
-    padding-left: 20px;
-    margin-bottom: 15px;
-    font-size: 20px;
-    box-shadow: 0px 4px 11.3px 0px rgba(0, 0, 0, 0.35);
-    border-radius: 4px;
+/* Cor de fundo do autocomplete */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #ffffff inset !important;
+    -webkit-text-fill-color: #1a1a1ade !important;
 }
 
-.form .campo-texto input::placeholder {
-    color: #868484da;
-    font-size: 16px;
-}
-
-.form .campo-texto label {
-    font-size: 22px;
-    color: #9D0039;
-    display: block;
-}
-
+/* Endereço e Horários */
 .endHora {
-    height: 300px;
     background-color: #b40036;
-    padding: 60px 20px;
+    padding: 40px 0px 20px;
     text-align: center;
     color: #fff;
+    box-shadow: 0 4px 12px #0000001a;
+    /* Sombreamento para destaque */
+    margin: 40px auto;
+    /* Centralizar e espaçar */
 }
 
 .endHora .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+    /* Espaçamento entre os elementos */
 }
 
 .endHora h1 {
-    text-align: center;
+    font-size: 2rem;
     margin-bottom: 30px;
 }
 
@@ -407,41 +445,45 @@ input:focus {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    gap: 10px;
-    /* Espaçamento entre a imagem e o parágrafo */
+    gap: 15px;
+    /* Aumentar o espaçamento entre a imagem e o parágrafo */
 }
 
 .endHora .horarios-tel-container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap;
+    /* Envolver em telas menores */
 }
 
 .endHora .container img {
-    width: 45px;
+    width: 50px;
     height: auto;
 }
 
 .endHora .container p {
-    font-size: 18px;
+    font-size: 1.1rem;
+    max-width: 315px;
+    /* Limitar a largura dos textos */
 }
 
 .redes-sociais {
-    padding: 60px 20px;
+    padding: 50px 20px;
     text-align: center;
     color: #b40036;
     border-radius: 10px;
+    margin-top: -40px;
 }
 
 .redes-sociais .curved {
     background-color: #f8f9fa;
-    height: 265px;
-    border-radius: 10px;
 }
 
 .redes-sociais .curved #mais-inform {
     margin-top: 30px;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 .redes-sociais .social-icons {
@@ -460,8 +502,6 @@ input:focus {
     /* Mantém a cor do texto */
 }
 
-
-
 .redes-sociais .social-icons img {
     width: 80px;
     height: auto;
@@ -475,7 +515,7 @@ input:focus {
 .redes-sociais .social-icons p {
     margin: 0;
     margin-left: 40px;
-    font-size: 16px;
+    font-size: 1rem;
     color: #b40036;
     position: relative;
     /*Permite ajustar a posição de elementos dentro do parágrafo.*/
@@ -491,7 +531,6 @@ input:focus {
 p::before e p::after são usados para adicionar algo antes ou depois do texto de um parágrafo, 
 como ícones, linhas, ou efeitos visuais, sem precisar alterar o HTML.
 */
-
 .redes-sociais .social-icons p::before {
     content: '';
     position: absolute;
@@ -517,7 +556,7 @@ como ícones, linhas, ou efeitos visuais, sem precisar alterar o HTML.
 
 .voltar-topo {
     position: fixed;
-    bottom: 2rem;
+    bottom: 6rem;
     left: 2rem;
 }
 
@@ -528,7 +567,7 @@ como ícones, linhas, ou efeitos visuais, sem precisar alterar o HTML.
 
 .whatsContato {
     position: fixed;
-    bottom: 2rem;
+    bottom: 6rem;
     right: 2rem;
 }
 

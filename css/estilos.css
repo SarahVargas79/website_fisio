@@ -578,13 +578,13 @@ como ícones, linhas, ou efeitos visuais, sem precisar alterar o HTML.
     height: auto;
 }
 
+footer p {
+    margin: 0;
+}
+
 footer {
     background-color: #b40036;
     color: white;
     text-align: center;
     padding: 3rem;
-}
-
-footer p {
-    margin: 0;
 }

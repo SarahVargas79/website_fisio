@@ -1,4 +1,4 @@
-@media (max-width: 768px) {
+@media (max-width: 1105px) {
     #logo {
         width: 250px;
         height: auto;
@@ -44,7 +44,7 @@
     .destaque {
         display: flex;
         flex-direction: column;
-        height: 350px;
+        height: 555px;
         padding: 1rem;
     }
 
@@ -195,6 +195,12 @@
         margin-bottom: 10px;
     }
 
+    #menu.active {
+        align-items: center;
+        top: 6.2rem;
+        width: 100%;
+    }
+
     img {
         max-width: 100%;
         height: auto;
@@ -216,13 +222,21 @@
         margin-bottom: 10px;
     }
 
+    .servicos .curved .container {
+        padding-bottom: 15px;
+    }
+
     .form {
         margin-top: 0;
-        margin-bottom: -10px;
+        margin-bottom: -12px;
     }
 
     .endHora {
         padding: 40px 0px 21px;
+    }
+
+    .redes-sociais .curved {
+        padding-top: 37px;
     }
 
     .voltar-topo {

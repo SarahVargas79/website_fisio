@@ -286,13 +286,14 @@ body h1 {
 
 /* Serviços */
 .servicos {
-    padding: 50px 20px;
+    padding: 50px 0px;
     border-radius: 10px;
     text-align: center;
     color: #b40036;
 }
 
 .servicos .curved .container {
+    padding-top: 5px;
     padding-bottom: 20px;
 }
 
@@ -470,15 +471,16 @@ input:-webkit-autofill {
 }
 
 .redes-sociais {
-    padding: 50px 20px;
+    padding: 0 0 40px;
     text-align: center;
     color: #b40036;
     border-radius: 10px;
-    margin-top: -40px;
+
 }
 
 .redes-sociais .curved {
     background-color: #f8f9fa;
+    padding-top: 40px;
 }
 
 .redes-sociais .curved #mais-inform {
@@ -556,8 +558,8 @@ como ícones, linhas, ou efeitos visuais, sem precisar alterar o HTML.
 
 .voltar-topo {
     position: fixed;
-    bottom: 6rem;
-    left: 2rem;
+    bottom: 7rem;
+    left: 1rem;
 }
 
 .voltar-topo img {
@@ -567,8 +569,8 @@ como ícones, linhas, ou efeitos visuais, sem precisar alterar o HTML.
 
 .whatsContato {
     position: fixed;
-    bottom: 6rem;
-    right: 2rem;
+    bottom: 6.5rem;
+    right: 1rem;
 }
 
 .whatsContato img {

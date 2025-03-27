@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION['mensagem'])) {
+    $mensagem = $_SESSION['mensagem']['texto']; // Armazena a mensagem em uma variável
+    $tipo = $_SESSION['mensagem']['tipo']; // Armazena o tipo (sucesso ou erro)
+    unset($_SESSION['mensagem']); // Remove a mensagem após exibir
+} else {
+    $mensagem = ''; // Se não houver mensagem, deixamos vazio
+    $tipo = ''; // Tipo vazio
+}
+require_once('./backend/conectar.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -6,15 +19,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fisioterapia Luana Moreira</title>
 
-    <link rel="stylesheet" href="./css/estilos.css">
-    <link rel="stylesheet" href="./css/responsivo.css">
+    <link rel="stylesheet" href="./src/css/estilos.css">
+    <link rel="stylesheet" href="./src/css/responsivo.css">
 </head>
 
 <body>
+    <!-- Alerta (Toast) -->
+    <?php if ($mensagem): ?>
+        <div class="toast <?= $tipo ?>">
+            <span class="toast-text"><?= $mensagem ?></span>
+            <span class="close-btn">&times;</span>
+        </div>
+    <?php endif; ?>
     <header id="cabecalho">
         <nav id="nav-bar">
             <div id="logo">
-                <img src="./imagens/logo.png" alt="Logo">
+                <img src="./backend/imagens/logo.png" alt="Logo">
             </div>
             <div id="hamburger-menu">
                 <span></span>
@@ -75,7 +95,7 @@
                     <a href="#servicos">Veja os Serviços</a>
                 </div>
                 <div class="container3">
-                    <img src="./imagens/ambiente.png" alt="Espaço do Ambiente">
+                    <img src="./backend/imagens/ambiente.png" alt="Espaço do Ambiente">
                 </div>
             </div>
         </div>
@@ -86,7 +106,7 @@
             <div class="inform">
                 <h1>Quem Sou Eu</h1>
                 <div class="img">
-                    <img src="./imagens/foto.png" alt="Foto da Fisioterapeuta">
+                    <img src="./backend/imagens/foto.png" alt="Foto da Fisioterapeuta">
                 </div>
                 <div class="curriculo">
                     <h3 id="name">Luana Moreira</h3>
@@ -109,7 +129,7 @@
         <div class="container">
             <h1>Seu Bem-Estar e Sua Confiança é meu compromisso</h1>
             <p>Aqui se atende aos protocolos de higienização e segurança durante todos os atendimentos.</p>
-            <img src="./imagens/planfeto.png" alt="Plano de higienização e segurança para o atendimento ao paciente">
+            <img src="./backend/imagens/planfeto.png" alt="Plano de higienização e segurança para o atendimento ao paciente">
         </div>
     </section>
 
@@ -119,15 +139,15 @@
                 <h1>Serviços</h1>
                 <div class="carrosel-container">
                     <div class="carrosel">
-                        <img src="./imagens/bandagens_funcionais1.png" alt="Bandagens funcionais">
-                        <img src="./imagens/bandagens_funcionais2.png" alt="Bandagens funcionais">
-                        <img src="./imagens/pilates.png" alt="Método Pilates">
-                        <img src="./imagens/reeducação_postural1.png" alt="Reeducação Postural">
-                        <img src="./imagens/reeducação_postural2.png" alt="Reeducação Postural">
-                        <img src="./imagens/yoga1.png" alt="Yoga">
-                        <img src="./imagens/yoga2.png" alt="Yoga">
-                        <img src="./imagens/osteopatia1.png" alt="Osteopatia">
-                        <img src="./imagens/osteopatia2.png" alt="Osteopatia">
+                        <img src="./backend/imagens/bandagens_funcionais1.png" alt="Bandagens funcionais">
+                        <img src="./backend/imagens/bandagens_funcionais2.png" alt="Bandagens funcionais">
+                        <img src="./backend/imagens/pilates.png" alt="Método Pilates">
+                        <img src="./backend/imagens/reeducação_postural1.png" alt="Reeducação Postural">
+                        <img src="./backend/imagens/reeducação_postural2.png" alt="Reeducação Postural">
+                        <img src="./backend/imagens/yoga1.png" alt="Yoga">
+                        <img src="./backend/imagens/yoga2.png" alt="Yoga">
+                        <img src="./backend/imagens/osteopatia1.png" alt="Osteopatia">
+                        <img src="./backend/imagens/osteopatia2.png" alt="Osteopatia">
                     </div>
                 </div>
                 <a href="https://api.whatsapp.com/send/?phone=5551999851245&text=Ol%C3%A1%2C+como+vai%3F+Me+chamo+Luana+para+come%C3%A7ar%2C+me+conte+o+motivo+do+seu+contato%3F&type=phone_number&app_absent=0"
@@ -141,12 +161,12 @@
     <section class="form" id="form">
         <div class="container">
             <h1>Contato</h1>
-            <form>
+            <form action="./backend/contato.php" method="POST">
                 <div class="campo-texto">
                     <input id="nome" type="text" name="nome" placeholder="Nome" required>
                     <input id="sobrenome" type="text" name="sobrenome" placeholder="Sobrenome" required>
                     <input id="email" type="email" name="email" placeholder="Email" required>
-                    <input id="whats" type="text" name="whats" placeholder="WhatsApp: (51) 999999999" required>
+                    <input id="whats" type="text" name="whatsapp" placeholder="WhatsApp: (51) 999999999" required>
                 </div>
                 <div class="informBotao">
                     <p>
@@ -159,6 +179,7 @@
                         Estou aqui para ajudar no que precisar.
                     </p>
                     <input type="submit" name="enviar" value="Enviar">
+
                 </div>
             </form>
         </div>
@@ -168,16 +189,16 @@
         <div class="container">
             <h1>Endereço e Horários</h1>
             <div class="local">
-                <img src="./imagens/icon_local.png" alt="Localização">
+                <img src="./backend/imagens/icon_local.png" alt="Localização">
                 <p>Rua desconhecida, nº sala - Estado</p>
             </div>
             <div class="horarios-tel-container">
                 <div class="horarios">
-                    <img src="./imagens/icon_atend.png" alt="Icone Hora">
+                    <img src="./backend/imagens/icon_atend.png" alt="Icone Hora">
                     <p>Seg a Sex das 08h às 20h</p>
                 </div>
                 <div class="tel">
-                    <img src="./imagens/icon_tel.png" alt="Icone Telefone">
+                    <img src="./backend/imagens/icon_tel.png" alt="Icone Telefone">
                     <p>(51) 99999-9999</p>
                 </div>
             </div>
@@ -189,9 +210,9 @@
             <h1>Redes Sociais</h1>
             <p id="mais-inform">Me Encontre Aqui!</p>
             <div class="social-icons">
-                <a href="#"><img src="./imagens/icon_face.png" alt="Facebook"></a>
-                <a id="whats" href="#"><img src="./imagens/icon_whats1.png" alt="WhatsApp"></a>
-                <a id="insta" href="https://www.instagram.com/" target="_blank"><img src="./imagens/icon_insta.png"
+                <a href="#"><img src="./backend/imagens/icon_face.png" alt="Facebook"></a>
+                <a id="whats" href="#"><img src="./backend/imagens/icon_whats1.png" alt="WhatsApp"></a>
+                <a id="insta" href="https://www.instagram.com/" target="_blank"><img src="./backend/imagens/icon_insta.png"
                         alt="Instagram">
                     <p>Me siga no Instagram</p>
                 </a>
@@ -200,13 +221,13 @@
     </section>
 
     <div class="voltar-topo">
-        <a href="#cabecalho"><img src="./imagens/voltar_topo.png" alt="Voltar Início"></a>
+        <a href="#cabecalho"><img src="./backend/imagens/voltar_topo.png" alt="Voltar Início"></a>
     </div>
 
     <div class="whatsContato">
         <a href="https://api.whatsapp.com/send/?phone=5551999851245&text=Ol%C3%A1%2C+como+vai%3F+Me+chamo+Luana+para+come%C3%A7ar%2C+me+conte+o+motivo+do+seu+contato%3F&type=phone_number&app_absent=0"
             target="_blank">
-            <img src="./imagens/icon_whats3.png" alt="WhatsApp para entrar em contato">
+            <img src="./backend/imagens/icon_whats3.png" alt="WhatsApp para entrar em contato">
         </a>
     </div>
 
@@ -217,7 +238,8 @@
         </div>
     </footer>
 
-    <script src="./js/scripty.js"></script>
+    <script src="./src/js/scripty.js"></script>
+    <script src="./backend/js/script.js"></script>
 </body>
 
 </html>
